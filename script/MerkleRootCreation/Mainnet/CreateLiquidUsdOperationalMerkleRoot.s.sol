@@ -138,6 +138,16 @@ contract CreateLiquidUsdOperationalMerkleRootScript is Script, MerkleTreeHelper 
             _addMerklLeafs(leafs, getAddress(sourceChain, "merklDistributor"), getAddress(sourceChain, "etherfiOpsAddress")); 
         }
 
+        // ========================= Curve Claiming ==========================
+        _addCurveClaimingLeafs(
+            leafs,
+            getAddress(sourceChain, "pyUsd_Usdc_Curve_Gauge")
+        );
+        _addCurveClaimingLeafs(
+            leafs,
+            getAddress(sourceChain, "USDC_RLUSD_Curve_Gauge")
+        );
+
         _createDroneLeafs(leafs, drone, droneStartIndex, leafIndex + 1);
         setAddress(true, mainnet, "boringVault", boringVault);
     }

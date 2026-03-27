@@ -828,6 +828,23 @@ contract MerkleTreeHelper is CommonBase, ChainValues, Test {
         leafs[leafIndex].argumentAddresses[0] = getAddress(sourceChain, "boringVault");
     }
 
+
+    function _addCurveClaimingLeafs(ManageLeaf[] memory leafs, address gauge) internal {
+            // Claim rewards.
+            unchecked {
+                leafIndex++;
+            }
+            leafs[leafIndex] = ManageLeaf(
+                gauge,
+                false,
+                "claim_rewards(address)",
+                new address[](1),
+                string.concat("Claim rewards from Curve gauge"),
+                getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+            );
+            leafs[leafIndex].argumentAddresses[0] = getAddress(sourceChain, "boringVault");
+    }
+
     function _addCRVClaimingLeafs(ManageLeaf[] memory leafs, address gauge) internal {
         unchecked {
             leafIndex++;
@@ -8440,7 +8457,7 @@ contract MerkleTreeHelper is CommonBase, ChainValues, Test {
          address itbPositionManager,
          ERC20[] memory tokensUsed,
          string memory itbContractName
-     ) internal {
+     ) internal virtual {
          // acceptOwnership
          leafIndex++;
          leafs[leafIndex] = ManageLeaf(
