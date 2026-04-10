@@ -923,12 +923,9 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
          * withdrawAll ETH tokens from ITB position manager
          */
         {
-            address itbPositionManager = 0x7F37350F463525c2670b10234FB014BC406F851c;
-            ERC20[] memory itbTokensUsed = new ERC20[](4);
-            itbTokensUsed[0] = getERC20(sourceChain, "WETH");
-            itbTokensUsed[1] = getERC20(sourceChain, "WEETH");
-            itbTokensUsed[2] = getERC20(sourceChain, "EETH");
-            itbTokensUsed[3] = getERC20(sourceChain, "USDC");
+            address itbPositionManager = 0xBbfC4D389A15643aFEEe34164a0333c5725DBd79;
+            ERC20[] memory itbTokensUsed = new ERC20[](1);
+            itbTokensUsed[0] = getERC20(sourceChain, "WEETH");
             _addLeafsForITBPositionManager(leafs, itbPositionManager, itbTokensUsed, "ITB Position Manager");
 
             address itbPositionManager2 = 0xA40aFb15275A94F64aF37C0cEaAaA45Cb568A361;
@@ -940,6 +937,9 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
             ERC20[] memory itbTokensUsed3 = new ERC20[](2);
             itbTokensUsed3[0] = getERC20(sourceChain, "WEETH");
             itbTokensUsed3[1] = getERC20(sourceChain, "PYUSD");
+            // Morpho weETH (RLUSD) + Morpho Sentora RLUSD Main v2
+            _addLeafsForITBPositionManager(leafs, itbPositionManager, itbTokensUsed, "ITB Position Manager Morpho weETH (RLUSD) and Morpho Sentora RLUSD Main v2");
+
             // Aave weETH -> RLUSD -> RLUSD Aave Horizon
             _addLeafsForITBPositionManager(leafs, itbPositionManager2, itbTokensUsed3, "ITB Position Manager 2");
             //Spark weETH → PYUSD → PYUSD Euler

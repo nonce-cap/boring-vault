@@ -896,6 +896,8 @@ contract ChainValues {
         values[mainnet]["WSTETH_USDT_86"] = 0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2;
         values[mainnet]["WSTETH_USDC_86"] = 0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc;
 
+        values[mainnet]["LBTC_WBTC"] = 0xf6a056627a51e511ec7f48332421432ea6971fc148d8f3c451e14ea108026549;
+
         // MetaMorpho
         values[mainnet]["usualBoostedUSDC"] = 0xd63070114470f685b75B74D60EEc7c1113d33a3D.toBytes32();
         values[mainnet]["gauntletUSDCcore"] = 0x8eB67A509616cd6A7c1B3c8C21D48FF57df3d458.toBytes32();
