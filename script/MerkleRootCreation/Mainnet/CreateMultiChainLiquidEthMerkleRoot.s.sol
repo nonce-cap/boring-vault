@@ -542,6 +542,8 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
 
         // ========================== ITB Reserve ==========================
         {
+            setAddress(true, sourceChain, "rawDataDecoderAndSanitizer", itbCorkDecoderAndSanitizer);
+
             ERC20[] memory tokensUsed = new ERC20[](4);
             tokensUsed[0] = getERC20(sourceChain, "SFRXETH");
             tokensUsed[1] = getERC20(sourceChain, "WSTETH");
@@ -550,6 +552,8 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
             _addLeafsForItbReserve(
                 leafs, itbReserveProtocolPositionManager, tokensUsed, "ETHPlus ITB Reserve Protocol Position Manager"
             );
+
+            setAddress(true, sourceChain, "rawDataDecoderAndSanitizer", rawDataDecoderAndSanitizer);
         }
         // ========================== ITB Lido Aave V3 wETH ==========================
         {
