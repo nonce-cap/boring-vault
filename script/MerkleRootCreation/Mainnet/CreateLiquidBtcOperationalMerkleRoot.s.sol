@@ -177,6 +177,7 @@ contract CreateMultichainLiquidBtcOperationalMerkleRootScript is Script, MerkleT
 
         // ========================== MetaMorpho ==========================
         _addERC4626WithdrawalLeafs(leafs, ERC4626(getAddress(sourceChain, "sentoraPYUSDMain")));
+        _addERC4626WithdrawalLeafs(leafs, ERC4626(getAddress(sourceChain, "sentoraPRIMEMain")));
 
         // ========================== Fee Claiming ===========================
         {

@@ -7311,6 +7311,49 @@ contract MerkleTreeHelper is CommonBase, ChainValues, Test {
         leafs[leafIndex].argumentAddresses[1] = getAddress(sourceChain, "boringVault");
     }
 
+    function _addERC4626DepositLeafs(ManageLeaf[] memory leafs, ERC4626 vault) internal {
+        ERC20 asset = vault.asset();
+        // Approvals
+        unchecked {
+            leafIndex++;
+        }
+        leafs[leafIndex] = ManageLeaf(
+            address(asset),
+            false,
+            "approve(address,uint256)",
+            new address[](1),
+            string.concat("Approve ", vault.symbol(), " to spend ", asset.symbol()),
+            getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+        );
+        leafs[leafIndex].argumentAddresses[0] = address(vault);
+        // Depositing
+        unchecked {
+            leafIndex++;
+        }
+        leafs[leafIndex] = ManageLeaf(
+            address(vault),
+            false,
+            "deposit(uint256,address)",
+            new address[](1),
+            string.concat("Deposit ", asset.symbol(), " for ", vault.symbol()),
+            getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+        );
+        leafs[leafIndex].argumentAddresses[0] = getAddress(sourceChain, "boringVault");
+        // Minting
+        unchecked {
+            leafIndex++;
+        }
+        leafs[leafIndex] = ManageLeaf(
+            address(vault),
+            false,
+            "mint(uint256,address)",
+            new address[](1),
+            string.concat("Mint ", vault.symbol(), " using ", asset.symbol()),
+            getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+        );
+        leafs[leafIndex].argumentAddresses[0] = getAddress(sourceChain, "boringVault");
+    }
+
     // ========================================= Vault Craft =========================================
 
     function _addVaultCraftLeafs(ManageLeaf[] memory leafs, ERC4626 vault, address gauge) internal {

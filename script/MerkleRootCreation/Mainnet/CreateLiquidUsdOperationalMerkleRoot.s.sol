@@ -257,6 +257,9 @@ contract CreateLiquidUsdOperationalMerkleRootScript is Script, MerkleTreeHelper 
             _addCurveGaugeClaimingLeafs(leafs, getAddress(sourceChain, "USDC_RLUSD_Curve_Gauge"));
         }
 
+        // ========================== MetaMorpho ==========================
+        _addERC4626DepositLeafs(leafs, ERC4626(getAddress(sourceChain, "sentoraPRIMEMain")));
+
 
         // ========================== Drones Setup ===============================
         _addLeafsForDrone(leafs);
