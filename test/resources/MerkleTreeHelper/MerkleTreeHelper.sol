@@ -2912,7 +2912,81 @@ contract MerkleTreeHelper is CommonBase, ChainValues, Test {
             "Redeem Fiat Request MFONE",
             getAddress(sourceChain, "rawDataDecoderAndSanitizer")
         );
-    } 
+    }
+
+    // ========================================= Midas Vault =========================================
+    function _addMidasVaultLeafs(ManageLeaf[] memory leafs, ERC20[] memory depositAssets, ERC20[] memory redeemAssets, address mToken, address depositAdapter, address redemptionVault)
+        internal
+    {
+        for (uint256 i; i < depositAssets.length; i++) {
+            unchecked {
+                leafIndex++;
+            }
+            leafs[leafIndex] = ManageLeaf(
+                address(depositAssets[i]),
+                false,
+                "approve(address,uint256)",
+                new address[](1),
+                string.concat("Approve ", depositAssets[i].symbol(), " to be spent by Midas Deposit Adapter"),
+                getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+            );
+            leafs[leafIndex].argumentAddresses[0] = depositAdapter;
+
+            unchecked {
+                leafIndex++;
+            }
+            leafs[leafIndex] = ManageLeaf(
+                depositAdapter,
+                false,
+                "depositInstant(address,uint256,uint256,bytes32)",
+                new address[](1),
+                string.concat("Deposit Instant ", depositAssets[i].symbol(), " for ", ERC20(mToken).symbol()),
+                getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+            );
+            leafs[leafIndex].argumentAddresses[0] = address(depositAssets[i]);
+        }
+
+        unchecked {
+            leafIndex++;
+        }
+        leafs[leafIndex] = ManageLeaf(
+            mToken,
+            false,
+            "approve(address,uint256)",
+            new address[](1),
+            string.concat("Approve ", ERC20(mToken).symbol(), " to be spent by Midas Redemption Vault"),
+            getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+        );
+        leafs[leafIndex].argumentAddresses[0] = redemptionVault;
+
+        for (uint256 i; i < redeemAssets.length; i++) {
+            unchecked {
+                leafIndex++;
+            }
+            leafs[leafIndex] = ManageLeaf(
+                redemptionVault,
+                false,
+                "redeemInstant(address,uint256,uint256)",
+                new address[](1),
+                string.concat("Redeem Instant ", ERC20(mToken).symbol(), " for ", redeemAssets[i].symbol()),
+                getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+            );
+            leafs[leafIndex].argumentAddresses[0] = address(redeemAssets[i]);
+
+            unchecked {
+                leafIndex++;
+            }
+            leafs[leafIndex] = ManageLeaf(
+                redemptionVault,
+                false,
+                "redeemRequest(address,uint256)",
+                new address[](1),
+                string.concat("Redeem Request ", ERC20(mToken).symbol(), " for ", redeemAssets[i].symbol()),
+                getAddress(sourceChain, "rawDataDecoderAndSanitizer")
+            );
+            leafs[leafIndex].argumentAddresses[0] = address(redeemAssets[i]);
+        }
+    }
 
     // ========================================= Kinetiq KHYPE =========================================
     function _addKHypeLeafs(ManageLeaf[] memory leafs) internal {
