@@ -1990,6 +1990,11 @@ contract ChainValues {
         // Compound V3
         values[optimism]["cWETHV3"] = 0xE36A30D249f7761327fd973001A32010b521b6Fd.toBytes32();
         values[optimism]["cometRewards"] = 0x443EA0340cb75a160F31A440722dec7b5bc3C2E9.toBytes32();
+
+        // Midas
+        values[optimism]["liquidRWA"] = 0x17bC8Ffd82b8a36e737Ca1141C025089589B915e.toBytes32();
+        values[optimism]["liquidRWA_DepositAdapter"] = 0x97b30c9D53A010009136b830f8A12f8d5624Bc43.toBytes32();
+        values[optimism]["liquidRWA_RedemptionVault"] = 0x12Ae90dCe5C2a4Ee5141FBfc408ff1022D051F42.toBytes32();
     }
 
     function _addHoleskyValues() private {

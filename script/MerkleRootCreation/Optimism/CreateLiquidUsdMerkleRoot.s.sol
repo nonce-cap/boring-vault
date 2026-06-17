@@ -22,7 +22,7 @@ contract CreateLiquidUsdMerkleRootScript is Script, MerkleTreeHelper {
     address public boringVault = 0x08c6F91e2B681FaF5e17227F2a44C307b3C1364C;
     address public managerAddress = 0x7b57Ad1A0AA89583130aCfAD024241170D24C13C;
     address public accountantAddress = 0xc315D6e14DDCDC7407784e2Caf815d131Bc1D3E7;
-    address public rawDataDecoderAndSanitizer = 0x1e686bb8962E2Ae3493587b7298aE772B9dC621D;
+    address public rawDataDecoderAndSanitizer = 0x7fc0F133Cb0a3B9C4186121C514E7830092111dC;
 
     function setUp() external {}
 
@@ -70,6 +70,16 @@ contract CreateLiquidUsdMerkleRootScript is Script, MerkleTreeHelper {
 
         // ===================== EtherFi Debt Manager ==========================
         _addEtherFiDebtManagerLeafs(leafs);
+
+        // ===================== Midas Vault ==========================
+        ERC20[] memory midasVaultTokens = new ERC20[](2);
+        midasVaultTokens[0] = getERC20(sourceChain, "USDC");
+        midasVaultTokens[1] = getERC20(sourceChain, "USDT");
+
+        ERC20[] memory midasVaultRedeemAssets = new ERC20[](1);
+        midasVaultRedeemAssets[0] = getERC20(sourceChain, "USDC");
+
+        _addMidasVaultLeafs(leafs, midasVaultTokens, midasVaultRedeemAssets, getAddress(sourceChain, "liquidRWA"), getAddress(sourceChain, "liquidRWA_DepositAdapter"), getAddress(sourceChain, "liquidRWA_RedemptionVault"));
 
         // CCTP Bridge
         _addCCTPBridgeLeafs(leafs, cctpMainnetDomainId);

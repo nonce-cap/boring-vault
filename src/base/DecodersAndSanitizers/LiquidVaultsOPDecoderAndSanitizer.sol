@@ -10,6 +10,7 @@ import {CCTPDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/Protocols/
 import {StandardBridgeDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/Protocols/StandardBridgeDecoderAndSanitizer.sol";
 import {TellerDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/Protocols/TellerDecoderAndSanitizer.sol";
 import {EtherFiDebtManagerDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/Protocols/EtherFiDebtManagerDecoderAndSanitizer.sol";
+import {MidasVaultDecoderAndSanitizer} from "src/base/DecodersAndSanitizers/MidasVaultDecoderAndSanitizer.sol";
 
 
 contract LiquidVaultsOPDecoderAndSanitizer is 
@@ -18,7 +19,8 @@ contract LiquidVaultsOPDecoderAndSanitizer is
     CCTPDecoderAndSanitizer,
     StandardBridgeDecoderAndSanitizer,
     TellerDecoderAndSanitizer, 
-    EtherFiDebtManagerDecoderAndSanitizer
+    EtherFiDebtManagerDecoderAndSanitizer,
+    MidasVaultDecoderAndSanitizer
 {
    
 }
