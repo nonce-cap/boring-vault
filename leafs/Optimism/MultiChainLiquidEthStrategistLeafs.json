@@ -10,8 +10,8 @@
             "Bytes4(TARGET_FUNCTION_SELECTOR)",
             "Bytes{N*20}(ADDRESS_ARGUMENT_0,...,ADDRESS_ARGUMENT_N)"
         ],
-        "LeafCount": 9,
-        "ManageRoot": "0x0321477bfba385dc68b9015921c5b812d2815ce26755a1189d0256d5f965756c",
+        "LeafCount": 16,
+        "ManageRoot": "0xe06ef92eabdee0514aab64ec5e502a3a344db6020d378143e1a3c5160815169f",
         "ManagerAddress": "0x227975088C28DBBb4b421c6d96781a53578f19a8",
         "TreeCapacity": 16
     },
@@ -134,106 +134,120 @@
             "TargetAddress": "0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x97b30c9D53A010009136b830f8A12f8d5624Bc43"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Approve USDC to be spent by Midas Deposit Adapter",
+            "FunctionSelector": "0x095ea7b3",
+            "FunctionSignature": "approve(address,uint256)",
+            "LeafDigest": "0xe067116a14debb84b981044113a7bb9f7d7fd771371be39c1dfcebda3b9fc912",
+            "PackedArgumentAddresses": "0x97b30c9d53a010009136b830f8a12f8d5624bc43",
+            "TargetAddress": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Deposit Instant USDC for liquidRWA",
+            "FunctionSelector": "0xc02dd27a",
+            "FunctionSignature": "depositInstant(address,uint256,uint256,bytes32)",
+            "LeafDigest": "0xf7efad1b83ba0229e15fd1dd15d8984cb95f0965ec277b42f1e2188b22a4dae1",
+            "PackedArgumentAddresses": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+            "TargetAddress": "0x97b30c9D53A010009136b830f8A12f8d5624Bc43"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x97b30c9D53A010009136b830f8A12f8d5624Bc43"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Approve USDT to be spent by Midas Deposit Adapter",
+            "FunctionSelector": "0x095ea7b3",
+            "FunctionSignature": "approve(address,uint256)",
+            "LeafDigest": "0xcb4cc3702a4774f5e65e685bafec5587952b69da48f358561a22e165eb874c53",
+            "PackedArgumentAddresses": "0x97b30c9d53a010009136b830f8a12f8d5624bc43",
+            "TargetAddress": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Deposit Instant USDT for liquidRWA",
+            "FunctionSelector": "0xc02dd27a",
+            "FunctionSignature": "depositInstant(address,uint256,uint256,bytes32)",
+            "LeafDigest": "0xf88fb6104f439fe74699ed06b16dee677ce02e9a865b8ec1fdc6922dd1cea9a4",
+            "PackedArgumentAddresses": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+            "TargetAddress": "0x97b30c9D53A010009136b830f8A12f8d5624Bc43"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x12Ae90dCe5C2a4Ee5141FBfc408ff1022D051F42"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Approve liquidRWA to be spent by Midas Redemption Vault",
+            "FunctionSelector": "0x095ea7b3",
+            "FunctionSignature": "approve(address,uint256)",
+            "LeafDigest": "0xcb1ca2706169c1ab531be067676cb3c97d49cf69c97adb92ccf4f3aca8176483",
+            "PackedArgumentAddresses": "0x12ae90dce5c2a4ee5141fbfc408ff1022d051f42",
+            "TargetAddress": "0x17bC8Ffd82b8a36e737Ca1141C025089589B915e"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Redeem Instant liquidRWA for USDC",
+            "FunctionSelector": "0x8b53f75e",
+            "FunctionSignature": "redeemInstant(address,uint256,uint256)",
+            "LeafDigest": "0x831e7537ac88a0b62c04f8eff9de8343b0beab6cc7732f46c3338de50d4d0716",
+            "PackedArgumentAddresses": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+            "TargetAddress": "0x12Ae90dCe5C2a4Ee5141FBfc408ff1022D051F42"
         },
         {
-            "AddressArguments": [],
+            "AddressArguments": [
+                "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
+            ],
             "CanSendValue": false,
-            "DecoderAndSanitizerAddress": "0x0000000000000000000000000000000000000000",
-            "Description": "",
-            "FunctionSelector": "0xc5d24601",
-            "FunctionSignature": "",
-            "LeafDigest": "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "PackedArgumentAddresses": "0x",
-            "TargetAddress": "0x0000000000000000000000000000000000000000"
+            "DecoderAndSanitizerAddress": "0x7fc0F133Cb0a3B9C4186121C514E7830092111dC",
+            "Description": "Redeem Request liquidRWA for USDC",
+            "FunctionSelector": "0xbfc2d46a",
+            "FunctionSignature": "redeemRequest(address,uint256)",
+            "LeafDigest": "0xdf265e854909e2abaef6dd8017ba774639d6e602de7a7800f857c0e148e274d3",
+            "PackedArgumentAddresses": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+            "TargetAddress": "0x12Ae90dCe5C2a4Ee5141FBfc408ff1022D051F42"
         }
     ],
     "MerkleTree": {
         "0": [
-            "0x0321477bfba385dc68b9015921c5b812d2815ce26755a1189d0256d5f965756c"
+            "0xe06ef92eabdee0514aab64ec5e502a3a344db6020d378143e1a3c5160815169f"
         ],
         "1": [
             "0x82b825c77ac463a046a9d7dd3f726e18ce1b9b0416bc0bfd60e2820326190a69",
-            "0x88a4bf51533ae533bcf31b9058829b0b3d2376ade9c64dff915483afe3ea7a2f"
+            "0x7a0de1a6633572f84a5a07a56145a9ba1fe659faf442e9b655158506acb1083b"
         ],
         "2": [
             "0xd814e8539c29dbec94cad5c8109cc3b9a17fe93f37791cef41317a145215a6ca",
             "0xbb8927d702f707c2908a80528274304f4bc4f60dd61ad7a03e5d1c633a593d1d",
-            "0x565e36194470042e40e991bc4569aab2bdb1a302013785d8e4637b57c0db3b0c",
-            "0x849eda7a295b642e5ddaf49a30eec4470cf507efa83b4104c0752d069c7638fe"
+            "0x2b529962cb96f1d14e05a4e228b1c3a675dd67ea81b48f40bd51d60ab30d7aa4",
+            "0x51e0478faa7589072a101415c16bd1b1ba947b1cb0a88b6112bcd9791c777c4b"
         ],
         "3": [
             "0x770d0f0f3d1cbaeb145906cb6a564c49c6f89647501e300ef00c58c1b9e55817",
             "0x1d8a2f7ce0eb7a5a0e1fc6001942f16b2d8cb3b247ee0480e100af812054ad1f",
             "0x9f060fc90f1d2ac8515d574f7bc6e8841b722abf3294b287a0409648d5013ed6",
             "0x27967c5ee05eedf17ce012f6c7e76914415d7bf8f19e6696cbd34acf0a20b68b",
-            "0x29a472f14ff672b7979a0f08a644a1696da641abd5a5111de7ec9f8eebf0d50f",
-            "0xc5a36f3b7b955966d5ed3135dcc612f978306d73bce3697e230afae57fbaeeba",
-            "0xc5a36f3b7b955966d5ed3135dcc612f978306d73bce3697e230afae57fbaeeba",
-            "0xc5a36f3b7b955966d5ed3135dcc612f978306d73bce3697e230afae57fbaeeba"
+            "0x4da1f88eae77586314a0c5f2bcc43d3ad05ae8a0f9cae59649c846f9c104d6da",
+            "0x1aba5362cd617fadd95204a5ca7bb2560b64bfaac59cb9264ac8f026147a352a",
+            "0x7cd054dc82429c6d665cfc87b82cbce3691efffef76de90b5c4f3d386b8111b5",
+            "0x1d1317f2614c5e4b8bf4d53ebbeaf92e7a3195bf85829b81d9e377139ff63c17"
         ],
         "4": [
             "0x8da0a4a57f9b8623701ed51d1e277e2e9596b34f8f6627bfc07ea30476d5cb23",
@@ -245,13 +259,13 @@
             "0x4a4f3f437e6d54dbfbe7d9fc8eb6e7a8cead7d47b46e1c88ecc04214f82ee436",
             "0xd28f542439d647703fc4d70a5ce494fcccdbeaba65fbb66f45e669f84c8dcf84",
             "0x7a39a9d23f36b3474e5d7d1d7ab237b1d0401c88cd8c3614f228cb9ffe3eb2fd",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400",
-            "0xa7a0fd846665d92e66be6155c6221b3acd7145ca7c4e4b67a594e4c516969400"
+            "0xe067116a14debb84b981044113a7bb9f7d7fd771371be39c1dfcebda3b9fc912",
+            "0xf7efad1b83ba0229e15fd1dd15d8984cb95f0965ec277b42f1e2188b22a4dae1",
+            "0xcb4cc3702a4774f5e65e685bafec5587952b69da48f358561a22e165eb874c53",
+            "0xf88fb6104f439fe74699ed06b16dee677ce02e9a865b8ec1fdc6922dd1cea9a4",
+            "0xcb1ca2706169c1ab531be067676cb3c97d49cf69c97adb92ccf4f3aca8176483",
+            "0x831e7537ac88a0b62c04f8eff9de8343b0beab6cc7732f46c3338de50d4d0716",
+            "0xdf265e854909e2abaef6dd8017ba774639d6e602de7a7800f857c0e148e274d3"
         ]
     }
 }
