@@ -40,7 +40,7 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
         setAddress(false, optimism, "accountantAddress", accountantAddress);
         setAddress(false, optimism, "rawDataDecoderAndSanitizer", rawDataDecoderAndSanitizer);
 
-        ManageLeaf[] memory leafs = new ManageLeaf[](16);
+        ManageLeaf[] memory leafs = new ManageLeaf[](32);
 
         // ========================== Native ==========================
         /**
@@ -63,8 +63,12 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
 
 
         // ========================== Standard Bridge ==========================
-        ERC20[] memory localTokens = new ERC20[](0);
-        ERC20[] memory remoteTokens = new ERC20[](0);
+        ERC20[] memory localTokens = new ERC20[](1);
+        localTokens[0] = getERC20(sourceChain, "USDT");
+
+        ERC20[] memory remoteTokens = new ERC20[](1);
+        remoteTokens[0] = getERC20(mainnet, "USDT");
+
         _addStandardBridgeLeafs(
             leafs,
             mainnet,
@@ -75,6 +79,9 @@ contract CreateMultiChainLiquidEthMerkleRootScript is Script, MerkleTreeHelper {
             localTokens,
             remoteTokens
         );
+
+        // CCTP Bridge
+        _addCCTPBridgeLeafs(leafs, cctpMainnetDomainId);
 
         // ========================== LayerZero ==========================
         _addLayerZeroLeafs(leafs, getERC20(sourceChain, "WEETH_OFT"), getAddress(sourceChain, "WEETH_OFT"), layerZeroMainnetEndpointId, getBytes32(sourceChain, "boringVault"));   

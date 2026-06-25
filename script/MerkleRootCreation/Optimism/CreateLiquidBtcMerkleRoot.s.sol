@@ -64,6 +64,27 @@ contract CreateLiquidBtcMerkleRoot is Script, MerkleTreeHelper {
         _addLeafsForFeeClaiming(leafs, getAddress(sourceChain, "accountantAddress"), claimingAssets, false);
 
 
+        // ========================== Standard Bridge ==========================
+        ERC20[] memory localTokens = new ERC20[](1);
+        localTokens[0] = getERC20(sourceChain, "USDT");
+
+        ERC20[] memory remoteTokens = new ERC20[](1);
+        remoteTokens[0] = getERC20(mainnet, "USDT");
+
+        _addStandardBridgeLeafs(
+            leafs,
+            mainnet,
+            address(0),
+            address(0),
+            getAddress(sourceChain, "standardBridge"),
+            address(0),
+            localTokens,
+            remoteTokens
+        );
+
+        // CCTP Bridge
+        _addCCTPBridgeLeafs(leafs, cctpMainnetDomainId);
+
         // ===================== Midas Vault ==========================
         setAddress(true, optimism, "rawDataDecoderAndSanitizer", midasVaultDecoderAndSanitizer);
         ERC20[] memory midasVaultTokens = new ERC20[](2);
